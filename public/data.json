@@ -1,0 +1,110 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Winter Coat Fitting for Dogs",
+    "providerName": "PawCare Studio",
+    "providerEmail": "info@pawcare.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Custom coat fitting and warm outfit options to keep your dog comfortable in the cold.",
+    "image": "https://i.ibb.co.com/yBpkCK1c/tommy-nguyen-If-s-Vxge-f0-unsplash.jpg",
+    "category": "Clothing"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Grooming & Paw Treatment",
+    "providerName": "CozyPets Grooming",
+    "providerEmail": "hello@cozypets.com",
+    "price": 30,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Professional grooming with moisturizing paw balm and winter-safe shampoo.",
+    "image": "https://i.ibb.co.com/5gfDcLH7/img-2.png",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Indoor Heated Pet Daycare",
+    "providerName": "WarmTails Haven",
+    "providerEmail": "care@warmtails.com",
+    "price": 45,
+    "rating": 4.7,
+    "slotsAvailable": 8,
+    "description": "Supervised indoor daycare with heated play areas and cozy rest zones for your pets.",
+    "image": "https://i.ibb.co.com/LX7d22tq/img-11.png",
+    "category": "Daycare"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Winter Wellness Check-Up",
+    "providerName": "FrostyPaws Veterinary",
+    "providerEmail": "vet@frostypaws.com",
+    "price": 55,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Comprehensive health check focusing on winter-related issues like dry skin and joint stiffness.",
+    "image": "https://i.ibb.co.com/bgwJf70R/img-4.png",
+    "category": "Healthcare"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Relaxing Aromatherapy Bath",
+    "providerName": "GlowFur Spa",
+    "providerEmail": "spa@glowfur.com",
+    "price": 30,
+    "rating": 4.6,
+    "slotsAvailable": 6,
+    "description": "Soothing scented bath with natural oils to calm and refresh your pet.",
+    "image": "https://i.ibb.co.com/QvqG6qjt/eliza-ari-1-W7b-Jqkvd-Sc-unsplash.jpg",
+    "category": "Spa"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Winter Nutrition Consultation",
+    "providerName": "PetWellness Experts",
+    "providerEmail": "nutrition@petwellness.com",
+    "price": 40,
+    "rating": 4.8,
+    "slotsAvailable": 6,
+    "description": "Personalized diet plans to boost immunity and maintain healthy weight during winter months.",
+    "image": "https://i.ibb.co.com/WWWdsvjq/zhaolong-V-b68-m-Y2-Ws-unsplash.jpg",
+    "category": "Consultation"
+  },
+  {
+    "serviceId": 7,
+    "serviceName": "Premium Flea & Tick Treatment",
+    "providerName": "SafePaws Veterinary",
+    "providerEmail": "care@safepaws.com",
+    "price": 45,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Complete flea and tick removal service with preventive coat treatment to keep pests away for weeks.",
+    "image": "https://i.ibb.co.com/pjgSQZYF/img-14.png",
+    "category": "Health"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Fur Hydration Treatment",
+    "providerName": "SoftPaws Spa",
+    "providerEmail": "spa@softpaws.com",
+    "price": 29,
+    "rating": 4.7,
+    "slotsAvailable": 6,
+    "description": "Deep-moisture treatment for dry, brittle fur during winter months.",
+    "image": "https://i.ibb.co.com/tP4MvFyB/img-1.png",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 9,
+    "serviceName": "Winter Anxiety Support Session",
+    "providerName": "CalmPets Therapy",
+    "providerEmail": "therapy@calmpets.com",
+    "price": 48,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Behavioral support for pets stressed by winter storms and indoor confinement.",
+    "image": "https://i.ibb.co.com/wFbVgjg0/img-13.png",
+    "category": "Training"
+  }
+]
