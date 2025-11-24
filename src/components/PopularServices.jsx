@@ -12,7 +12,7 @@ const PopularServices = () => {
             .then(data => setServices(data))
             .catch(err => console.log(err))
     }, [])
-    console.log(services)
+
 
 
     return (
@@ -23,7 +23,7 @@ const PopularServices = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
-                    services.map(service => (
+                    services.slice(0,3).map(service => (
                         <div key={service.serviceId} className="card bg-base-200 shadow-sm hover:shadow-2xl transition-shadow duration-300">
                             <figure>
                                 <img
@@ -52,10 +52,6 @@ const PopularServices = () => {
                     )
                 }
             </div>
-
-
-
-
         </div>
     );
 };
