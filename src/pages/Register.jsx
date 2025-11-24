@@ -4,10 +4,11 @@ import { AuthContext } from '../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
 import { toast } from 'react-toastify';
+import { FcGoogle } from 'react-icons/fc';
 
 const Register = () => {
 
-    const { registerWithEmailAndPass, setUser, user } = useContext(AuthContext);
+    const { registerWithEmailAndPass, setUser, signInWithGoogle, setLoading } = useContext(AuthContext);
     const handleSubmit = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -33,7 +34,19 @@ const Register = () => {
             })
 
     }
-    console.log(user)
+    const handleGoogleUp = () => {
+            signInWithGoogle()
+                .then((res) => {
+                    setLoading(false);
+                    setUser(res.user);
+                    toast.success("Signin successful");
+                })
+                .catch((e) => {
+                    console.log(e);
+                    toast.error(e.message);
+                });
+    
+        }
 
     return (
         <div className="flex justify-center my-20">
@@ -83,6 +96,17 @@ const Register = () => {
                         <button type="submit" className="btn btn-primary mt-3">
                             Register
                         </button>
+
+                        <div className="flex items-center justify-center gap-2 my-2">
+                            <div className="h-px w-16 bg-base-300"></div>
+                            <span className="text-sm">or</span>
+                            <div className="h-px w-16 bg-base-300"></div>
+                        </div>
+
+                        <button type='button' onClick={handleGoogleUp} className="btn btn-secondary">
+                            <FcGoogle className='text-xl' /> Register With Google
+                        </button>
+
                         <p className="font-medium text-lg text-center pt-5">
                             Already Have An Account ?{" "}
                             <Link className="hover:underline text-primary"

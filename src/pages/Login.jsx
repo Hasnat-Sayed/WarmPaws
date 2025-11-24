@@ -4,10 +4,11 @@ import { AuthContext } from '../provider/AuthProvider';
 import auth from '../firebase/firebase.config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
 
-    const { setUser, user, setLoading } = useContext(AuthContext)
+    const { setUser, setLoading, signInWithGoogle } = useContext(AuthContext)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -19,16 +20,27 @@ const Login = () => {
                 const user = userCredential.user;
                 setUser(user);
                 setLoading(false)
-                // toast.success
-
-
+                toast.success("Signin successful")
             })
             .catch((e) => {
                 console.log(e);
                 toast.error(e.message);
             });
     }
-    console.log(user)
+
+    const handleGoogle = () => {
+        signInWithGoogle()
+            .then((res) => {
+                setLoading(false);
+                setUser(res.user);
+                toast.success("Signin successful");
+            })
+            .catch((e) => {
+                console.log(e);
+                toast.error(e.message);
+            });
+
+    }
 
     return (
         <div className="flex justify-center my-20">
@@ -64,6 +76,18 @@ const Login = () => {
                         <button type="submit" className="btn btn-primary mt-3">
                             Login
                         </button>
+
+                        <div className="flex items-center justify-center gap-2 my-2">
+                            <div className="h-px w-16 bg-base-300"></div>
+                            <span className="text-sm">or</span>
+                            <div className="h-px w-16 bg-base-300"></div>
+                        </div>
+
+                        <button type='button' onClick={handleGoogle} className="btn btn-secondary">
+                            <FcGoogle className='text-xl' /> Login With Google
+                        </button>
+
+
                         <p className="font-medium text-lg text-center pt-5">
                             Dont’t Have An Account ?{" "}
                             <Link className="hover:underline text-primary"
