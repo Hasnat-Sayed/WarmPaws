@@ -27,7 +27,7 @@ const vets = [
 
     const MeetVets = () => {
         return (
-            <div className='container mx-auto mt-10 px-4 lg:px-20 bg-base-100'>
+            <div className='container mx-auto my-10 px-4 lg:px-20 bg-base-100'>
                 <div className="text-center mb-12">
                     <h3 className="text-4xl font-bold text-center text-primary">Meet Our Expert Vets</h3>
                 </div>

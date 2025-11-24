@@ -29,7 +29,7 @@ const WinterCareTips = () => {
     ];
 
     return (
-        <div className='bg-base-200 py-8'>
+        <div className='bg-base-200 py-16'>
             <div className="container mx-auto mt-10 px-4 lg:px-20">
                 <div className="text-center mb-12">
                     <h3 className="text-4xl font-bold text-center text-primary">
