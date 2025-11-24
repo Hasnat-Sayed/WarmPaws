@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
+import Loading from '../components/Loading';
 
 const Services = () => {
 
     const [services, setServices] = useState([]);
-        useEffect(() => {
-            fetch('/data.json')
-                .then(res => res.json())
-                .then(data => setServices(data))
-                .catch(err => console.log(err))
-        }, [])
+    const [loading, setLoading] = useState(true);
+    useEffect(() => {
+        fetch('/data.json')
+            .then(res => res.json())
+            .then(data => setServices(data))
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false))
+
+    }, [])
     return (
         <div className='container mx-auto mt-8 mb-16 px-4 lg:px-20 min-h-screen'>
-                    <div className="text-center mb-12">
-                        <h3 className="text-4xl font-bold text-center text-primary">Our Services</h3>
-                    </div>
-        
+            <div className="text-center mb-12">
+                <h3 className="text-4xl font-bold text-center text-primary">Our Services</h3>
+            </div>
+            {
+                loading ? (<Loading></Loading>) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {
                             services.map(service => (
@@ -37,7 +42,7 @@ const Services = () => {
                                                 Price:
                                                 <span className='text-primary'> ${service?.price}</span></div>
                                         </div>
-        
+
                                         <div className="card-actions w-full">
                                             <button className="btn btn-primary w-full rounded-lg">View Details</button>
                                         </div>
@@ -47,7 +52,11 @@ const Services = () => {
                             )
                         }
                     </div>
-                </div>
+                )
+            }
+
+
+        </div>
     );
 };
 
