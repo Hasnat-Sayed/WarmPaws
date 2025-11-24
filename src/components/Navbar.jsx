@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../provider/AuthProvider';
+import { signOut } from 'firebase/auth';
+import auth from '../firebase/firebase.config';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+
+    const { user, setUser } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        signOut(auth)
+            .then(() => {
+                toast.success("Signout successful");
+                setUser(null);
+            })
+            .catch((e) => {
+                toast.error(e.message);
+            });
+    }
+
     return (
         <div className="navbar bg-base-200 shadow-sm px-2 lg:px-20">
             <div className="navbar-start">
@@ -26,10 +44,18 @@ const Navbar = () => {
                     <li><NavLink to="/myprofile">My Profile</NavLink></li>
                 </ul>
             </div>
-            <div className="navbar-end flex gap-3">
-                <Link to={'/login'} className="btn btn-primary">Login</Link>
-                <Link to={'/register'} className="btn btn-secondary">Register</Link>
-            </div>
+
+            {
+                user && <div className="navbar-end flex gap-3">
+                    <button onClick={handleSignOut} className="btn btn-primary">Logout</button> </div>
+            }
+            {
+                !user && <div className="navbar-end flex gap-3">
+                    <Link to={'/login'} className="btn btn-primary">Login</Link>
+                    <Link to={'/register'} className="btn btn-secondary">Register</Link>
+                </div>
+            }
+
         </div>
     );
 };

@@ -60,9 +60,9 @@ const Testimonial = () => {
                         >
                             <div className="card-body">
                                 <div className='flex gap-2'>
-                                    {[...Array(testimonial.rating)].map(value => (
+                                    {[...Array(testimonial.rating)].map((_, index) => (
                                         <span
-                                            key={value}
+                                            key={index}
                                             className=" text-xl text-yellow-500"
                                         ><FaStar></FaStar></span>
                                     ))}
