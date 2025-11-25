@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import Loading from '../components/Loading';
+import { Link } from 'react-router';
 
 const Services = () => {
 
@@ -44,7 +45,8 @@ const Services = () => {
                                         </div>
 
                                         <div className="card-actions w-full">
-                                            <button className="btn btn-primary w-full rounded-lg">View Details</button>
+                                            <Link to={`/details/${service?.serviceId}`} className="w-full"><button className="btn btn-primary w-full rounded-lg">View Details</button></Link>
+
                                         </div>
                                     </div>
                                 </div>

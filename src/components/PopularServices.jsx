@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import Loading from './Loading';
+import { Link } from 'react-router';
 
 
 
@@ -21,7 +22,7 @@ const PopularServices = () => {
     return (
         <>
             {
-                loading ? (<Loading></Loading> ) : (
+                loading ? (<Loading></Loading>) : (
                     <div className='container mx-auto mt-16 mb-16 px-4 lg:px-20'>
                         <div className="text-center mb-12">
                             <h3 className="text-4xl font-bold text-center text-primary">Popular Winter Care Services</h3>
@@ -50,7 +51,7 @@ const PopularServices = () => {
                                             </div>
 
                                             <div className="card-actions w-full">
-                                                <button className="btn btn-primary w-full rounded-lg">View Details</button>
+                                                <Link to={`/details/${service?.serviceId}`} className="w-full"><button className="btn btn-primary w-full rounded-lg">View Details</button></Link>
                                             </div>
                                         </div>
                                     </div>
