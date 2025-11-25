@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import auth from '../firebase/firebase.config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -8,7 +8,10 @@ import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
 
-    const { setUser, setLoading, signInWithGoogle } = useContext(AuthContext)
+    const { setUser, setLoading, signInWithGoogle } = useContext(AuthContext);
+
+    const location = useLocation();
+    const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,6 +24,7 @@ const Login = () => {
                 setUser(user);
                 setLoading(false)
                 toast.success("Signin successful")
+                navigate(location.state || "/")
             })
             .catch((e) => {
                 console.log(e);
@@ -34,6 +38,7 @@ const Login = () => {
                 setLoading(false);
                 setUser(res.user);
                 toast.success("Signin successful");
+                navigate(location.state || "/")
             })
             .catch((e) => {
                 console.log(e);

@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
@@ -9,10 +9,34 @@ import { FcGoogle } from 'react-icons/fc';
 const Register = () => {
 
     const { registerWithEmailAndPass, setUser, signInWithGoogle, setLoading } = useContext(AuthContext);
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
+
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const pass = e.target.password.value;
+
+        const upperCase = /[A-Z]/;
+        const lowerCase = /[a-z]/;
+
+        if (pass.length < 6) {
+            setError("Password must be at least 6 characters long");
+            return;
+        }
+
+        if (!upperCase.test(pass)) {
+            setError("Password must contain at least one Uppercase letter");
+            return;
+        }
+        if (!lowerCase.test(pass)) {
+            setError("Password must contain at least one Lowercase letter");
+            return;
+        }
+        setError("");
+        
+
         const name = e.target.name.value;
         const photo = e.target.photo.value;
         registerWithEmailAndPass(email, pass)
@@ -22,6 +46,7 @@ const Register = () => {
                 }).then(() => {
                     setUser(userCredential.user)
                     toast.success("Registration Successful")
+                    navigate("/")
                 }).catch((error) => {
                     console.log(error)
                     toast.error(error.message);
@@ -35,18 +60,19 @@ const Register = () => {
 
     }
     const handleGoogleUp = () => {
-            signInWithGoogle()
-                .then((res) => {
-                    setLoading(false);
-                    setUser(res.user);
-                    toast.success("Signin successful");
-                })
-                .catch((e) => {
-                    console.log(e);
-                    toast.error(e.message);
-                });
-    
-        }
+        signInWithGoogle()
+            .then((res) => {
+                setLoading(false);
+                setUser(res.user);
+                toast.success("Registration Successful");
+                navigate("/")
+            })
+            .catch((e) => {
+                console.log(e);
+                toast.error(e.message);
+            });
+
+    }
 
     return (
         <div className="flex justify-center my-20">
@@ -92,6 +118,10 @@ const Register = () => {
                             placeholder="Enter Your Password"
                             required
                         />
+
+                        {error && (
+                            <p className="text-red-500 text-sm mt-1">{error}</p>
+                        )}
 
                         <button type="submit" className="btn btn-primary mt-3">
                             Register
