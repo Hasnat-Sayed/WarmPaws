@@ -53,7 +53,7 @@ const ServiceDetails = () => {
                         </p>
                     </div>
 
-                    <div className='md:flex md:justify-between md:items-center my-5 md:max-w-xl'>
+                    <div className='md:flex md:justify-between md:items-center my-5 md:max-w-md'>
 
                         <div className='text-center md:text-left md:mt-0 mt-8'>
                             <GiPriceTag className='mx-auto md:m-0 text-4xl' />

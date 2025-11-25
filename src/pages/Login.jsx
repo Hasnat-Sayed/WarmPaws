@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import auth from '../firebase/firebase.config';
@@ -11,7 +11,8 @@ const Login = () => {
     const { setUser, setLoading, signInWithGoogle } = useContext(AuthContext);
 
     const location = useLocation();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -47,6 +48,10 @@ const Login = () => {
 
     }
 
+    const handleForgot = () => {
+        navigate(`/forget/${email}`)
+    }
+
     return (
         <div className="flex justify-center my-20">
             <div className="card bg-base-200 w-full max-w-xl shrink-0 shadow-2xl border border-secondary/30 pt-10 pb-3">
@@ -60,6 +65,7 @@ const Login = () => {
                         <input
                             name="email"
                             type="email"
+                            onChange={(e)=>setEmail(e.target.value)}
                             className="input w-full bg-base-100"
                             placeholder="Enter Your Email"
                             required
@@ -74,7 +80,7 @@ const Login = () => {
                             required
                         />
                         <div className="pt-2">
-                            <a className="link link-hover">Forgot password?</a>
+                            <button type='button' onClick={handleForgot} className="link font-semibold link-hover">Forgot password?</button>
                         </div>
 
 
