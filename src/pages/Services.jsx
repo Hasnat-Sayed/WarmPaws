@@ -27,9 +27,9 @@ const Services = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {
                             services.map(service => (
-                                <motion.div initial={{ scale: 0.7 }} animate={{
+                                <motion.div initial={{ scale: 0.9 }} animate={{
                                     scale: 1,
-                                    transition: { duration: 1 }
+                                    transition: { duration: 0.4 }
                                 }} key={service.serviceId} className="card bg-base-200 shadow-sm hover:shadow-2xl transition-shadow duration-300">
                                     <figure>
                                         <img

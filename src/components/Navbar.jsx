@@ -60,6 +60,7 @@ const Navbar = () => {
                                 src={user?.photoURL}
                                 className='w-10 h-10 rounded-full object-cover ring-2 ring-primary cursor-pointer'
                                 alt={user?.displayName}
+                                referrerPolicy="no-referrer"
                             />
                         </div>
 

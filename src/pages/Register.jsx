@@ -5,11 +5,13 @@ import { updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
 import { toast } from 'react-toastify';
 import { FcGoogle } from 'react-icons/fc';
+import { FaEye, FaRegEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
 
     const { registerWithEmailAndPass, setUser, signInWithGoogle, setLoading } = useContext(AuthContext);
     const [error, setError] = useState("");
+    const [show, setShow] = useState(false)
     const navigate = useNavigate();
 
 
@@ -35,7 +37,7 @@ const Register = () => {
             return;
         }
         setError("");
-        
+
 
         const name = e.target.name.value;
         const photo = e.target.photo.value;
@@ -110,14 +112,21 @@ const Register = () => {
                             required
                         />
 
-                        <label className="label font-semibold">Password</label>
-                        <input
-                            name="password"
-                            type="password"
-                            className="input w-full bg-base-100"
-                            placeholder="Enter Your Password"
-                            required
-                        />
+                        <div className='relative'>
+                            <label className="label font-semibold">Password</label>
+                            <input
+                                name="password"
+                                type={show ? "text" : "password"}
+                                className="input w-full bg-base-100"
+                                placeholder="Enter Your Password"
+                                required
+                            />
+                            <span onClick={() => setShow(!show)} className='absolute right-2 top-8 cursor-pointer z-50 '>
+                                {show ? <FaEye /> : <FaRegEyeSlash />}</span>
+
+                        </div>
+
+
 
                         {error && (
                             <p className="text-red-500 text-sm mt-1">{error}</p>

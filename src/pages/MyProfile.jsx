@@ -5,12 +5,12 @@ import auth from '../firebase/firebase.config';
 
 const MyProfile = () => {
     const { user, setUser } = useContext(AuthContext)
-    console.log(user)
+
     const [isOpen, setIsOpen] = useState(false)
+ 
 
     const updateBtn = () => {
         setIsOpen(!isOpen)
-        console.log("sdf")
     }
 
     const handleUpdate = (e) => {
@@ -37,8 +37,8 @@ const MyProfile = () => {
 
                 <div className='flex flex-col items-center justify-center border-2 border-primary border-t-0 gap-10 p-10 rounded-b-2xl bg-base-100'>
                     <div className="avatar">
-                        <div className="w-36 rounded-full ring-5 ring-offset-8 ring-primary">
-                            <img src={user?.photoURL} />
+                        <div className="w-36 rounded-full ring-5 ring-offset-8 ring-primary overflow-hidden">
+                            <img className="object-cover w-full h-full" alt={user?.displayName} referrerPolicy="no-referrer" src={user?.photoURL} />
                         </div>
                     </div>
 

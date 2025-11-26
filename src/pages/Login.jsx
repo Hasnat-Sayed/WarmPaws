@@ -5,6 +5,7 @@ import auth from '../firebase/firebase.config';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { FcGoogle } from 'react-icons/fc';
+import { FaEye, FaRegEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
 
@@ -13,6 +14,7 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
+    const [show, setShow] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -65,20 +67,27 @@ const Login = () => {
                         <input
                             name="email"
                             type="email"
-                            onChange={(e)=>setEmail(e.target.value)}
+                            onChange={(e) => setEmail(e.target.value)}
                             className="input w-full bg-base-100"
                             placeholder="Enter Your Email"
                             required
                         />
 
-                        <label className="label font-semibold">Password</label>
-                        <input
-                            name="password"
-                            type="password"
-                            className="input w-full bg-base-100"
-                            placeholder="Enter Your Password"
-                            required
-                        />
+                        <div className='relative'>
+                            <label className="label font-semibold">Password</label>
+                            <input
+                                name="password"
+                                type={show ? "text" : "password"}
+                                className="input w-full bg-base-100"
+                                placeholder="Enter Your Password"
+                                required
+                            />
+
+                            <span onClick={() => setShow(!show)} className='absolute right-2 top-8 cursor-pointer z-50 '>
+                                {show ? <FaEye  /> : <FaRegEyeSlash />}</span>
+                        </div>
+
+
                         <div className="pt-2">
                             <button type='button' onClick={handleForgot} className="link font-semibold link-hover">Forgot password?</button>
                         </div>

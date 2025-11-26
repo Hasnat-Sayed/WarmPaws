@@ -11,7 +11,6 @@ const ForgetPass = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const formEmail = e.target.email.value;
-        console.log(formEmail)
         sendPasswordResetEmail(auth, formEmail)
             .then(() => {
                 window.open('https://mail.google.com/mail/u/0/')
