@@ -4,10 +4,11 @@ import { AuthContext } from '../provider/AuthProvider';
 import { signOut } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
 import { toast } from 'react-toastify';
+import { FaPaw } from 'react-icons/fa';
 
 const Navbar = () => {
 
-    const { user, setUser } = useContext(AuthContext);
+    const { user, setUser, loading } = useContext(AuthContext);
 
     const handleSignOut = () => {
         signOut(auth)
@@ -35,7 +36,11 @@ const Navbar = () => {
                         <li><NavLink to="/myprofile">My Profile</NavLink></li>
                     </ul>
                 </div>
-                <p className="font-bold text-2xl px-0 text-primary">WarmPaws</p>
+                <div className='flex items-center justify-center gap-1'>
+                    <FaPaw className="text-lg text-primary" />
+                    <p className="font-bold text-2xl px-0 text-primary">WarmPaws</p>
+                </div>
+
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -46,15 +51,27 @@ const Navbar = () => {
             </div>
 
             {
-                user && <div className="navbar-end flex gap-3">
-                    <button onClick={handleSignOut} className="btn btn-primary">Logout</button> </div>
+                loading ? (<div className="navbar-end flex gap-3">
+                    <span className="loading loading-spinner loading-xl"></span>
+                </div>) : user ?
+                    (<div className="navbar-end flex gap-3">
+                        <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                            <img
+                                src={user?.photoURL}
+                                className='w-10 h-10 rounded-full object-cover ring-2 ring-primary cursor-pointer'
+                                alt={user?.displayName}
+                            />
+                        </div>
+
+                        <button onClick={handleSignOut} className="btn btn-primary">Logout</button>
+                    </div>)
+                    : (<div className="navbar-end flex gap-3">
+                        <Link to={'/login'} className="btn btn-primary">Login</Link>
+                        <Link to={'/register'} className="btn btn-secondary">Register</Link>
+                    </div>)
             }
-            {
-                !user && <div className="navbar-end flex gap-3">
-                    <Link to={'/login'} className="btn btn-primary">Login</Link>
-                    <Link to={'/register'} className="btn btn-secondary">Register</Link>
-                </div>
-            }
+
+
 
         </div>
     );

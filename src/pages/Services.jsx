@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import Loading from '../components/Loading';
 import { Link } from 'react-router';
+import { motion } from "motion/react"
+
 
 const Services = () => {
 
@@ -17,7 +19,7 @@ const Services = () => {
     }, [])
     return (
         <div className='container mx-auto mt-8 mb-16 px-4 lg:px-20 min-h-screen'>
-            <div className="text-center mb-12">
+            <div className="text-center mb-8">
                 <h3 className="text-4xl font-bold text-center text-primary">Our Services</h3>
             </div>
             {
@@ -25,7 +27,10 @@ const Services = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {
                             services.map(service => (
-                                <div key={service.serviceId} className="card bg-base-200 shadow-sm hover:shadow-2xl transition-shadow duration-300">
+                                <motion.div initial={{ scale: 0.7 }} animate={{
+                                    scale: 1,
+                                    transition: { duration: 1 }
+                                }} key={service.serviceId} className="card bg-base-200 shadow-sm hover:shadow-2xl transition-shadow duration-300">
                                     <figure>
                                         <img
                                             src={service?.image}
@@ -49,7 +54,7 @@ const Services = () => {
 
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             )
                             )
                         }

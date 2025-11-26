@@ -17,6 +17,8 @@
   --color-accent: #6C6D71;
 }
 
+@import 'animate.css';
+
 *{
   font-family: "Roboto", sans-serif;
 }

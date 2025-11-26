@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaPaw } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const Footer = () => {
@@ -6,6 +7,7 @@ const Footer = () => {
         <div>
             <footer className="footer sm:footer-horizontal bg-base-300 text-white p-10 px-4 lg:px-20">
                 <aside className='max-w-sm'>
+                    <FaPaw className="text-4xl text-primary" />
 
                     <p className='font-bold text-primary text-3xl'>
                         WarmPaws
@@ -13,7 +15,7 @@ const Footer = () => {
                     <p className='opacity-70'>A cozy winter companion platform designed for pet owners to ensure their furry friends stay warm, safe, and healthy during the cold season</p>
                 </aside>
                 <nav>
-                    <h6 className="footer-title">Quick Links</h6>
+                    <h6 className="footer-title text-lg">Quick Links</h6>
                     <Link to="/"className="link link-hover">Home</Link>
                     <Link to="/services"className="link link-hover">Seivices</Link>
                     <Link to="/myprofile"className="link link-hover">My Profile</Link>
@@ -21,13 +23,13 @@ const Footer = () => {
                 </nav>
 
                 <nav>
-                    <h6 className="footer-title">Legal</h6>
-                    <a className="link link-hover">Terms of use</a>
-                    <a className="link link-hover">Privacy policy</a>
-                    <a className="link link-hover">Cookie policy</a>
+                    <h6 className="footer-title text-lg">Contact info</h6>
+                    <a className="link link-hover">warmPaws@mail.com</a>
+                    <a className="link link-hover">+880-123456789</a>
+                    <a className="link link-hover">Chittagong</a>
                 </nav>
                 <nav>
-                    <h6 className="footer-title">Social</h6>
+                    <h6 className="footer-title text-lg">Social</h6>
                     <div className="grid grid-flow-col gap-4">
                         <a>
                             <svg

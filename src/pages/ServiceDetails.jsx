@@ -83,15 +83,14 @@ const ServiceDetails = () => {
                     </p>
                     <p className='text-center md:text-left font-medium'>{result?.description}</p>
 
-
-
                 </div>
-
             </div>
+
+    
             <div className="hero bg-base-100 pt-8">
                 <div className="hero-content flex-col gap-10 lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl text-primary font-bold">Book Service</h1>
+                        <h1 className="animate__animated animate__bounce text-5xl text-primary font-bold">Book Service</h1>
                         
                     </div>
                     <div className="card bg-base-200 w-full max-w-lg rounded-2xl shrink-0 shadow-2xl">

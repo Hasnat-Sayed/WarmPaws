@@ -32,7 +32,7 @@ const MyProfile = () => {
             <div className="container mx-auto max-w-2xl">
 
                 <div className="bg-primary text-secondary border-2 border-primary rounded-t-2xl p-8">
-                    <h1 className="text-4xl font-bold text-center">My Profile</h1>
+                    <h1 className="animate__animated animate__bounce text-4xl font-bold text-center">My Profile</h1>
                 </div>
 
                 <div className='flex flex-col items-center justify-center border-2 border-primary border-t-0 gap-10 p-10 rounded-b-2xl bg-base-100'>
