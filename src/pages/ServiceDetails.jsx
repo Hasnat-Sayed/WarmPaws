@@ -98,10 +98,10 @@ const ServiceDetails = () => {
                             <form onSubmit={handleBook}>
                                 <fieldset className="fieldset">
                                 <label className="label">Email</label>
-                                <input type="email" className="input w-full" placeholder="Enter Your Email" />
+                                <input type="email" className="input w-full" placeholder="Enter Your Email" required />
                                 <label className="label">Name</label>
-                                <input type="text" className="input w-full" placeholder="Enter Your name" />
-                                <button className="btn btn-secondary mt-4">Login</button>
+                                <input type="text" className="input w-full" placeholder="Enter Your name" required/>
+                                <button className="btn btn-secondary mt-4">Book Now!</button>
                             </fieldset>
                             </form>
                         </div>

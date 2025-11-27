@@ -55,8 +55,8 @@ const Login = () => {
     }
 
     return (
-        <div className="flex justify-center my-20">
-            <div className="card bg-base-200 w-full max-w-xl shrink-0 shadow-2xl border border-secondary/30 pt-10 pb-3">
+        <div className="flex justify-center mx-4 my-5 min-h-screen items-center ">
+            <div className="card bg-base-200 w-full max-w-xl shrink-0 shadow-2xl border border-secondary/10 pt-10 pb-3">
                 <h2 className="font-semibold text-4xl text-center pb-7 mx-10 border-primary text-primary border-b-4">
                     Login to Your Account
                 </h2>
@@ -83,7 +83,7 @@ const Login = () => {
                                 required
                             />
 
-                            <span onClick={() => setShow(!show)} className='absolute right-2 top-8 cursor-pointer z-50 '>
+                            <span onClick={() => setShow(!show)} className='absolute right-2 top-7.5 cursor-pointer z-50 text-lg'>
                                 {show ? <FaEye  /> : <FaRegEyeSlash />}</span>
                         </div>
 
