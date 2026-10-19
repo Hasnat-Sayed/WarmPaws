@@ -44,29 +44,6 @@ WarmPaws provides a comprehensive solution for pet owners to access winter care 
 - **Error Handling**: Graceful error handling with user-friendly messages
 - **Loading States**: Visual loading spinners during data fetching
 
-## 🛠️ NPM Packages Used
-
-### Core Dependencies
-- **react** (^19.2.0) - UI library
-- **react-dom** (^19.2.0) - React rendering
-- **react-router** (^7.9.6) - Routing and navigation
-
-### UI & Styling
-- **tailwindcss** (^4.1.17) - Utility-first CSS framework
-- **@tailwindcss/vite** (^4.1.17) - Tailwind CSS Vite integration
-
-### Animation & Interaction
-- **motion** (^12.23.24) - Modern animation library for React
-- **animate.css** (^4.1.1) - CSS animation library
-- **swiper** (^12.0.3) - Touch-enabled slider for hero section
-
-### Firebase & Authentication
-- **firebase** (^12.6.0) - Backend services and authentication
-
-### Utilities
-- **react-toastify** (^11.0.5) - Toast notifications for user feedback
-- **react-icons** (^5.5.0) - Comprehensive icon library
-
 ## 📱 Pages & Routes
 
 - `/` - Home page with hero slider, popular services, winter care tips, expert vets and testimonials
@@ -77,12 +54,60 @@ WarmPaws provides a comprehensive solution for pet owners to access winter care 
 - `/my-profile` - User profile management with update functionality (Protected Route)
 - `/forgot-password` - Password reset page with email prefill
 
-## 👨‍💻 Author
+## Tech Stack
+ 
+- **Frontend:** React 19, React Router 7, Vite
+- **Styling:** Tailwind CSS 4, daisyUI
+- **Authentication:** Firebase Authentication
+- **UI & Animation:** Swiper, motion, animate.css, react-toastify, react-icons
+- **Hosting:** Netlify
 
-**Hasnat Bin Sayed**
-- GitHub: [Hasnat-Sayed](https://github.com/Hasnat-Sayed)
-- Project: [WarmPaws](https://github.com/Hasnat-Sayed/WarmPaws)
-- Live Site: [warmpaws2099.netlify.app](https://warmpaws2099.netlify.app)
+## Dependencies
+ 
+| Package | Used for |
+|---|---|
+| react, react-dom | UI |
+| react-router | Routing |
+| firebase | Authentication |
+| tailwindcss, @tailwindcss/vite, daisyui | Styling |
+| swiper | Hero slider |
+| motion, animate.css | Animations |
+| react-toastify | Toast notifications |
+| react-icons | Icons |
+ 
+## Run Locally
+ 
+**Prerequisites:** Node.js and a Firebase project with Email/Password and Google sign-in enabled.
+ 
+```bash
+git clone https://github.com/Hasnat-Sayed/WarmPaws.git
+cd WarmPaws
+npm install
+```
+ 
+Create a `.env.local` file in the project root with your Firebase config:
+ 
+```env
+VITE_apiKey=your_api_key
+VITE_authDomain=your_auth_domain
+VITE_projectId=your_project_id
+VITE_storageBucket=your_storage_bucket
+VITE_messagingSenderId=your_messaging_sender_id
+VITE_appId=your_app_id
+```
+ 
+Start the dev server:
+ 
+```bash
+npm run dev
+```
+
+## Links
+ 
+- **Live site:** [warmpaws2099.netlify.app](https://warmpaws2099.netlify.app/)
+- **Repository:** [github.com/Hasnat-Sayed/WarmPaws](https://github.com/Hasnat-Sayed/WarmPaws)
+- **Author:** Hasnat Bin Sayed — [GitHub](https://github.com/Hasnat-Sayed) · [LinkedIn](https://linkedin.com/in/hasnat-bin-sayed)
+
 
 ## 📞 Support
 
